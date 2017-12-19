@@ -1,4 +1,4 @@
-# keep-copy
+# Stikcy Note
 
 > A Vue.js project
 
