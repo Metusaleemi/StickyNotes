@@ -1,0 +1,55 @@
+@import "@material/button/mdc-button";
+@import "@material/card/mdc-card";
+@import "@material/textfield/mdc-text-field";
+@import "compass-mixins/lib/compass/css3/user-interface";
+@import "../../app.scss";
+
+$input-title: rgba(0, 0, 0, 0.54);
+
+#addnote {
+    .title {
+        padding-top: 10px;
+        padding-bottom: 5px;
+        margin: 0px;
+    }
+
+    #noteTitle {
+        color: rgba(0, 0, 0, 0.87);
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 23px;
+        font-family: 'Roboto Condensed',arial,sans-serif;
+
+        @include input-placeholder {
+            color: $input-title;
+        }
+    }
+
+    #noteBody {
+        margin: 10px 0;
+        resize: none;
+        font-size: 14px;
+        font-family: 'Roboto Slab','Times New Roman',serif;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .primary-button {
+        @extend .mdc-button;
+
+        @extend .mdc-button--raised;
+
+        @extend .mdc-button--dense;
+        @include mdc-button-container-fill-color(#ACFCD9);
+        @include mdc-button-ink-color(black);
+        margin-bottom: 10px;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: initial;
+    }
+}
