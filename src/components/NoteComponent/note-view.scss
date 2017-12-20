@@ -1,37 +1,46 @@
 @import "@material/button/mdc-button";
 @import "@material/card/mdc-card";
 
-#note{
-  margin-top: 15px;
+
+#note {
+    margin-top: 15px;
 }
 
+.card-content {
+    padding: 15px 15px;
+    background: #F5F5F5;
+}
 .close-btn {
-    @extend .mdc-button;
+  position: absolute;
+  right: 5px;
+  top:5px;
+  z-index: 5;
 
-    @extend .mdc-ripple-upgraded;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 12px;
 
-    @include mdc-button-ink-color(black);
+  @extend .mdc-button;
 
-    margin: 10px 0;
+  @extend .mdc-ripple-upgraded;
+
+  @include mdc-button-ink-color(black);
+
 }
+.note-content {
+    top: 0px;
 
-.note-content{
-  padding: 15px 15px; 
-  background: #F5F5F5;
-}
-.title {
-  color: rgba(0, 0, 0, 0.87);
-  font-weight: bold;
-  font-size: 17px;
-  line-height: 23px;
-  font-family: 'Roboto Condensed',arial,sans-serif;
-}
+    .title {
+        color: rgba(0, 0, 0, 0.87);
+        font-weight: bold;
+        font-size: 17px;
+        line-height: 23px;
+        font-family: 'Roboto Condensed',arial,sans-serif;
+    }
 
-.body {
-  margin: 10px 0;
-  resize: none;
-  font-size: 17px;
-  font-family: 'Roboto Slab','Times New Roman',serif;
-  box-sizing: border-box;
-  overflow: hidden;
+    .body {
+        resize: none;
+        font-size: 17px;
+        font-family: 'Roboto Slab','Times New Roman',serif;
+    }
 }
