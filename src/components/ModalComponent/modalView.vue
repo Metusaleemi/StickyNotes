@@ -1,30 +1,36 @@
 <template>
     <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container col-xs-12 no-gutter mdc-card">
-          <div>
-            <button  @click="$emit('close');"
-                class="pull-right close-btn" 
-                data-mdc-auto-init="MDCRipple">
-            <i class="material-icons">clear</i>
+      <div class="modal-wrapper container">
+        <div class="modal-container col-xs-12 col-md-6 col-md-offset-2 mdc-card">
+          <button @click="$emit('close');"
+              class="pull-right close-btn" 
+              data-mdc-auto-init="MDCRipple">
+          <i class="material-icons">clear</i>
           </button>
+          <!-- TODO MAKE COMPONENT -->
+          <div class="mdc-text-field col-xs-12 title no-gutter">
+            <textarea-autosize type="text" 
+                  class="no-border col-xs-12 " 
+                  placeholder="Nimi" 
+                  id="noteTitle" name="note" 
+                  rows="1" 
+                  v-model="noteTitle">
+            </textarea-autosize>
           </div>
-          <div class="mdc-text-field mdc-text-field col-xs-12">
-            <input type="text" id="noteTitle" class="no-border" name="noteTitle" placeholder="Nimi" v-model="noteTitle">
-          </div>
-          <div class="col-xs-12">
-            <textarea type="text" 
-                      class="no-border col-xs-12 no-gutter" 
+          <div class="mdc-text-field col-xs-12 body no-gutter">
+            <textarea-autosize type="text" 
+                      class="no-border col-xs-12" 
                       placeholder="Tee muistiinpano..." 
-                      id="noteBody" name="noteBody" 
+                      id="noteBody" name="note" 
                       rows="1" 
                       v-model="noteBody">
-            </textarea>
+            </textarea-autosize>
           </div>
-          <div class="">
-            <button class="done-btn pull-right" @click="$emit('close'); updateNote(note.id)" :disabled="!isValid">
-              <i class="material-icons">done</i>
-            </button>
+          <!-- TODO MAKE COMPONENT ENDS-->
+         <!--  <note-form-component></note-form-component> -->
+
+          <div class="col-xs-12">
+          <button class="primary-button pull-right" @click="$emit('close'); updateNote(note.id)" :disabled="!isValid" data-mdc-auto-init="MDCRipple">Lisää</button>
           </div>
         </div>
       </div>
@@ -33,9 +39,13 @@
 </template>
 
 <script>
+import AddNoteComponent from "../AddNoteComponent/AddNoteView.vue";
 import NoteStore from "../../store/NoteStore.js";
+
+
 export default {
   name: "modal-component",
+  components: { AddNoteComponent },
   props: ["note"],
 
   data() {
@@ -55,7 +65,27 @@ export default {
     isValid: function() {
       return this.noteTitle != "" || this.noteBody != "";
     }
-  }
+  },
+
+/*   mounted: function() {
+    // FIX THE FUCTIONALITY TO DISPLAY ALL TEXT ATT ONCE
+    var textareas = document.getElementsByName("note");
+    console.log(textareas)
+   
+
+
+    for (var i = 0; i < textareas.length; i++) {
+      textareas[i].addEventListener("click", autosize);
+      textareas[i].addEventListener("keydown", autosize);
+    }
+
+    function autosize() {
+      var el = this;
+      setTimeout(function() {
+      el.style.cssText = "height:" + el.scrollHeight + "px";
+      }, 0);
+    }
+  } */
 };
 </script>
 <style lang="scss" scoped>

@@ -4,6 +4,7 @@
   <note-component v-for="note in NoteStore.notes" :key="note.id" :note="note"></note-component>
 </div>   
 </template>
+
 <script>
 import AddNoteComponent from '../AddNoteComponent/AddNoteView.vue'
 import NoteComponent from '../NoteComponent/NoteView.vue'
@@ -11,7 +12,7 @@ import NoteStore from '../../store/NoteStore.js'
 
 export default {
   name: 'board-component',
-  components: { AddNoteComponent, NoteComponent },
+  components: { AddNoteComponent, NoteComponent},
 
   data() {
     return {

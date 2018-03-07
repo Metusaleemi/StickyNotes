@@ -1,20 +1,19 @@
 <template>
-  <div id="note" class="mdc-card col-xs-12">
+  <div id="note" class="mdc-card card-content col-xs-12">
     <div>
       <button @click="removeNote(note.id)"
               class="pull-right close-btn" 
               data-mdc-auto-init="MDCRipple">
         <i class="material-icons">clear</i>
       </button>
-    
-      <div @click="showModal = true" class="note-content">
-        <div class="title"> {{ note.title }} </div>
-        <div class="body"> {{ note.body }} </div>
+      
+      <div @click="showModal = true;" class="note-content no-border col-xs-12 no-gutter">
+        <div contentEditable=false class="title" v-if="note.title != '' " v-html="note.title"> </div>
+        <div contentEditable=false class="body" v-for="line in note.body.split('\n')" :key="line.id"> {{ line }} </div>
       </div> 
       <modal-component v-if="showModal" @close="showModal = false" :note="note"></modal-component>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -28,15 +27,15 @@ export default {
 
   data() {
     return {
-      showModal: false
+      showModal: false,
     }
   },
 
   methods: {
     removeNote(id) {
       NoteStore.methods.removeNote(id)
-    }
-  }
+    },
+  },
 }
 </script>
 

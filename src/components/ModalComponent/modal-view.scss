@@ -1,54 +1,6 @@
-@import "@material/button/mdc-button";
-@import "@material/card/mdc-card";
-@import "@material/textfield/mdc-text-field";
-@import "compass-mixins/lib/compass/css3/user-interface";
+@import "../../app.scss";
 
-$input-title: rgba(0, 0, 0, 0.54);
-$modal-color: lighten(#55D6BE, 35%);
-/// TODO: MOVE BASIC BUTTON DECORATIONS TO MAIN SCSS... FOR ALL COMPONENTS TO USE
-.done-btn {
-    @extend .mdc-button;
 
-    @extend .mdc-ripple-upgraded;
-
-    @extend .mdc-button--dense;
-
-    @include mdc-button-container-fill-color(transparent);
-    @include mdc-button-ink-color(green);
-
-    margin: 10px 0;
-}
-/// TODO: MOVE BASIC BUTTON DECORATIONS TO MAIN SCSS... FOR ALL COMPONENTS TO USE
-.close-btn {
-    @extend .mdc-button;
-
-    @extend .mdc-ripple-upgraded;
-
-    @include mdc-button-ink-color(black);
-
-    margin: 10px 0;
-}
-/// TODO: MOVE BASIC DECORATIONS TO MAIN SCSS... FOR ALL COMPONENTS TO USE
-#noteTitle {
-    color: rgba(0, 0, 0, 0.87);
-    font-weight: bold;
-    font-size: 17px;
-    font-family: 'Roboto Condensed',arial,sans-serif;
-    background: $modal-color;
-    @include input-placeholder {
-        color: $input-title;
-    }
-}
-/// TODO: MOVE BASIC DECORATIONS TO MAIN SCSS... FOR ALL COMPONENTS TO USE
-#noteBody {
-    margin: 10px 0;
-    resize: none;
-    font-size: 17px;
-    font-family: 'Roboto Slab','Times New Roman',serif;
-    box-sizing: border-box;
-    overflow: hidden;
-    background: $modal-color
-}
 
 .modal-mask {
     position: fixed;
@@ -57,7 +9,7 @@ $modal-color: lighten(#55D6BE, 35%);
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.17);
+    background-color: rgba(0, 0, 0, 0.27);
     display: table;
 }
 
@@ -66,6 +18,6 @@ $modal-color: lighten(#55D6BE, 35%);
 }
 
 .modal-container {
-    width: 100%;
-    background-color: $modal-color;
+    background-color:white;
+    padding-top: 10px;
 }

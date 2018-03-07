@@ -1,12 +1,97 @@
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "@material/button/mdc-button";
+@import "@material/card/mdc-card";
+@import "@material/textfield/mdc-text-field";
+
+@import "compass-mixins/lib/compass/css3/user-interface";
+
+$input-title: rgba(0, 0, 0, 0.54);
+
 #app {
-  padding-top: 60px;
+    padding: 60px 0;
 }
 
-.no-gutter{
-  padding: 0;
+body{
+    background-color: #e8e8e8;
+}
+.no-gutter {
+    padding: 0;
 }
 
-.no-border{
-  border: none;
-  outline: none;
+.no-border {
+    border: none;
+    outline: none;
+}
+
+
+.close-btn {
+    @extend .mdc-button;
+
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 5;
+    height: 26px;
+    min-width: 18px;
+    padding: 5px;
+    &:hover{
+        background-color: lighten(black,92%);
+    }
+  
+}
+.material-icons{
+    font-size: 18px;
+    color: black;
+  
+}
+#noteTitle {
+  
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 23px;
+    font-family: 'Roboto Condensed',arial,sans-serif;
+    display: initial;
+    min-height: 23px;
+    @include input-placeholder {
+        color: $input-title;
+    }
+}
+
+#noteBody {
+    padding-top: 5px;
+    font-size: 14px;
+    line-height: 23px;
+    font-family: 'Roboto Slab','Times New Roman',serif;
+    display: initial;
+    
+    height: 36px;
+    margin-bottom: 0;
+}
+
+.primary-button {
+    @extend .mdc-button;
+    @include mdc-button-ink-color(black);
+    height: 24px;
+    margin-bottom: 10px;
+    font-size: 11px;
+
+    &:hover{
+        background: lighten(black,92%);
+    }
+}
+
+.title {
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: bold;
+    line-height: 23px;
+    font-family: 'Roboto Condensed',arial,sans-serif;
+}
+
+.body {
+    resize: none;
+    font-family: 'Roboto Slab','Times New Roman',serif;
 }
